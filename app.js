@@ -5,7 +5,7 @@ const board = document.getElementById('board');
 // let state
 
 // set event listeners 
-console.log('hey!');
+// console.log('hey!');
 window.addEventListener('load', async () => {
     // checkAuth();
 

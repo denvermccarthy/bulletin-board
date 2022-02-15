@@ -32,3 +32,14 @@ export function checkAuth() {
         location.replace('/auth');
     } 
 }
+
+export async function fetchPosts() {
+    const resp = await client.from('bulletin_board').select('*');
+    console.log(resp);
+
+    return checkError(resp);
+}
+
+function checkError({ data, error }) {
+    return error ? console.error(error) : data;
+}

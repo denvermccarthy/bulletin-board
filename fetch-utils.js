@@ -39,3 +39,9 @@ export async function fetchPosts() {
 function checkError({ data, error }) {
     return error ? console.error(error) : data;
 }
+
+export async function createPost(post){
+    const resp = await client.from('bulletin_board').insert(post);
+    console.log('resp');
+    return checkError(resp);
+}

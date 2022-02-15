@@ -7,7 +7,7 @@ export function getUser() {
     return client.auth.session() && client.auth.session().user;
 }
 
-export async function signupUser(email, password) {
+export async function signUpUser(email, password) {
     await client.auth.signUp({ email, password });
 
 }
@@ -20,9 +20,7 @@ export async function signInUser(email, password) {
 export function redirectIfLoggedIn() {
     const user = getUser();
     if (user){
-        location.replace('/');
-    } else {
-        console.error(user);
+        location.replace('/create');
     }
 }
 
@@ -35,8 +33,6 @@ export function checkAuth() {
 
 export async function fetchPosts() {
     const resp = await client.from('bulletin_board').select('*');
-    console.log(resp);
-
     return checkError(resp);
 }
 

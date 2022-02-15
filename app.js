@@ -1,4 +1,5 @@
-import { fetchPosts, checkAuth } from "./fetch-utils.js";
+import { fetchPosts } from './fetch-utils.js';
+import { renderPost } from './render-utils.js';
 
 // import functions and grab DOM elements
 const board = document.getElementById('board');
@@ -7,11 +8,12 @@ const board = document.getElementById('board');
 // set event listeners 
 // console.log('hey!');
 window.addEventListener('load', async () => {
-    // checkAuth();
 
     const posts = await fetchPosts();
-    console.log(posts);
-
+    
+    posts.forEach(element => {
+        board.append(renderPost(element));
+    });
     
 });
   // get user input

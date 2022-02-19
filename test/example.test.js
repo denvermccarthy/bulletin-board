@@ -1,18 +1,22 @@
 // IMPORT MODULES under test here:
-// import { example } from '../example.js';
+import { renderPost } from '../render-utils.js';
 
 const test = QUnit.test;
 
-test('time to test a function', (expect) => {
+test('renderPost Function', (expect) => {
     //Arrange
     // Set up your arguments and expectations
-    const expected = true;
+    const expected = `<div class="post"><h3 class="title">example post</h3><p class="details">details</p><p class="contact">contact: 1-800-EXAMPLE</p></div>`;
     
     //Act 
     // Call the function you're testing and set the result to a const
-    const actual = true;
+    const actual = renderPost({
+        title: 'example post',
+        description: 'details',
+        contact: '1-800-EXAMPLE'
+    });
 
     //Expect
     // Make assertions about what is expected versus the actual result
-    expect.equal(actual, expected);
+    expect.equal(actual.outerHTML, expected);
 });

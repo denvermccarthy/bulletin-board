@@ -41,7 +41,7 @@ function checkError({ data, error }) {
 }
 
 export async function createPost(post){
-    const resp = await client.from('bulletin_board').insert(post);
-    console.log('resp');
+    const resp = await client.from('bulletin_board').insert({ title: post.title, description: post.description, contact: post.contact });
+    console.log(resp, 'resp');
     return checkError(resp);
 }

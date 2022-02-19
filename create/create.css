@@ -1,0 +1,19 @@
+
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 5em;
+
+}
+
+form button {
+    width: 10vw;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
